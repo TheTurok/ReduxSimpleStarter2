@@ -11,15 +11,20 @@ class SearchBar extends Component { //have additional functionality when class c
   render() { //syntax to define mthod in class
     //have to return jsx on render method
     return (
-      <div>
+      <div className="search-bar">
         <input
         value = {this.state.term}
-        onChange = {event => this.setState({term: event.target.value})} />
+        onChange = {event => this.onInputchange(event.target.value)} />
       </div>
     );
 
 
   }  //onChange react define property
+
+  onInputchange(term){
+    this.setState({term});
+    this.props.onSearchTermChange(term);
+  }
 
 
 }
